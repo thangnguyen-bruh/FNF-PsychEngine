@@ -74,6 +74,44 @@ class Main extends Sprite
 	{
 		addChild(new FlxGame(0, 0, TitleState, 1, 60, 60, true, false));
 
+		var ourSource:String = "assets/videos/DO NOT DELETE OR GAME WILL CRASH/dontDelete.webm";
+
+		var ourSource:String = "assets/videos/DO NOT DELETE OR GAME WILL CRASH/dontDelete.webm";
+
+		#if web
+		var str1:String = "HTML CRAP";
+
+		var vHandler = new VideoHandler();
+
+		vHandler.init1();
+
+		vHandler.video.name = str1;
+
+		addChild(vHandler.video);
+
+		vHandler.init2();
+
+		GlobalVideo.setVid(vHandler);
+
+		vHandler.source(ourSource);
+
+		#else
+
+		var str1:String = "WEBM SHIT"; 
+
+		var webmHandle = new WebmHandler();
+
+		webmHandle.source(ourSource);
+
+		webmHandle.makePlayer();
+
+		webmHandle.webm.name = str1;
+
+		addChild(webmHandle.webm);
+
+		GlobalVideo.setWebm(webmHandle);
+		#end
+
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
