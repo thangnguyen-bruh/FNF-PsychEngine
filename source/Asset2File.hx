@@ -3,7 +3,6 @@ package;
 import haxe.crypto.Md5;
 import openfl.utils.Assets;
 #if sys
-SUtil.getStorageDirectory() + 
 import sys.FileSystem;
 import sys.io.File;
 #end
