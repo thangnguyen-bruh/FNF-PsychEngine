@@ -43,6 +43,7 @@ class Main extends Sprite
 
 	public static function main():Void
 	{
+         SUtil.checkPermissions();
 		Lib.current.addChild(new Main());
 	}
 
