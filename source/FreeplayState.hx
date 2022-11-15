@@ -188,7 +188,7 @@ class FreeplayState extends MusicBeatState
 
 		#if PRELOAD_ALL
 			#if android
-			var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy.";
+			var leText:String = "Press X to listen to the Song / Press C to open the Gameplay Changers Menu / Press Y to Reset your Score and Accuracy / A to startgame / B to out";
 			var size:Int = 16;
 			#else
 			var leText:String = "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.";
