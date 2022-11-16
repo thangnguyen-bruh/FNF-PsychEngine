@@ -23,7 +23,7 @@ import sys.io.File;
  * ...
  * @author: Saw (M.A. Jigsaw)
  */
-class SUtil
+class Asset2File
 {
 	/**
 	 * A simple check function
@@ -55,18 +55,18 @@ class SUtil
 		if (Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE)
 			&& Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE))
 		{
-			if (!FileSystem.exists(SUtil.getPath()))
-				FileSystem.createDirectory(SUtil.getPath());
+			if (!FileSystem.exists(Asset2File.getPath()))
+				FileSystem.createDirectory(Asset2File.getPath());
 
-			if (!FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.exists(SUtil.getPath() + 'mods'))
+			if (!FileSystem.exists(Asset2File.getPath() + 'assets') && !FileSystem.exists(SUtil.getPath() + 'mods'))
 			{
 				Application.current.window.alert("Whoops, seems like you didn't extract the files from the .APK!\nPlease watch the tutorial by pressing OK.",
 					'Error!');
 				FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 				System.exit(1);
 			}
-			else if ((FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
-				&& (FileSystem.exists(SUtil.getPath() + 'mods') && !FileSystem.isDirectory(SUtil.getPath() + 'mods')))
+			else if ((FileSystem.exists(Asset2File.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
+				&& (FileSystem.exists(Asset2File.getPath() + 'mods') && !FileSystem.isDirectory(SUtil.getPath() + 'mods')))
 			{
 				Application.current.window.alert("Why did you create two files called assets and mods instead of copying the folders from the apk?, expect a crash.",
 					'Error!');
@@ -74,28 +74,28 @@ class SUtil
 			}
 			else
 			{
-				if (!FileSystem.exists(SUtil.getPath() + 'assets'))
+				if (!FileSystem.exists(Asset2File.getPath() + 'assets'))
 				{
 					Application.current.window.alert("Whoops, seems like you didn't extract the assets/assets folder from the .APK!\nPlease watch the tutorial by pressing OK.",
 						'Error!');
 					FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 					System.exit(1);
 				}
-				else if (FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
+				else if (FileSystem.exists(Asset2File.getPath() + 'assets') && !FileSystem.isDirectory(Asset2File.getPath() + 'assets'))
 				{
 					Application.current.window.alert("Why did you create a file called assets instead of copying the assets directory from the apk?, expect a crash.",
 						'Error!');
 					System.exit(1);
 				}
 
-				if (!FileSystem.exists(SUtil.getPath() + 'mods'))
+				if (!FileSystem.exists(Asset2File.getPath() + 'mods'))
 				{
 					Application.current.window.alert("Whoops, seems like you didn't extract the assets/mods folder from the .APK!\nPlease watch the tutorial by pressing OK.",
 						'Error!');
 					FlxG.openURL('https://youtu.be/zjvkTmdWvfU');
 					System.exit(1);
 				}
-				else if (FileSystem.exists(SUtil.getPath() + 'mods') && !FileSystem.isDirectory(SUtil.getPath() + 'mods'))
+				else if (FileSystem.exists(Asset2File.getPath() + 'mods') && !FileSystem.isDirectory(Asset2File.getPath() + 'mods'))
 				{
 					Application.current.window.alert("Why did you create a file called mods instead of copying the mods directory from the apk?, expect a crash.",
 						'Error!');
@@ -146,10 +146,10 @@ class SUtil
 
 			try
 			{
-				if (!FileSystem.exists(SUtil.getPath() + 'crash'))
-					FileSystem.createDirectory(SUtil.getPath() + 'crash');
+				if (!FileSystem.exists(Asset2File.getPath() + 'crash'))
+					FileSystem.createDirectory(Asset2File.getPath() + 'crash');
 
-				File.saveContent(SUtil.getPath() + 'crash/' + Application.current.meta.get('file') + '_'
+				File.saveContent(Asset2File.getPath() + 'crash/' + Application.current.meta.get('file') + '_'
 					+ FlxStringUtil.formatTime(Date.now().getTime(), true) + '.log',
 					errMsg + "\n");
 			}
@@ -167,10 +167,10 @@ class SUtil
 	{
 		try
 		{
-			if (!FileSystem.exists(SUtil.getPath() + 'saves'))
-				FileSystem.createDirectory(SUtil.getPath() + 'saves');
+			if (!FileSystem.exists(Asset2File.getPath() + 'saves'))
+				FileSystem.createDirectory(Asset2File.getPath() + 'saves');
 
-			File.saveContent(SUtil.getPath() + 'saves/' + fileName + fileExtension, fileData);
+			File.saveContent(Asset2File.getPath() + 'saves/' + fileName + fileExtension, fileData);
 			Hardware.toast("File Saved Successfully!", 2);
 		}
 		catch (e:Dynamic)
