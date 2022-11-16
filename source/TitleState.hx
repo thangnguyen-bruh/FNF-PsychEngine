@@ -16,6 +16,7 @@ import haxe.Json;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 #if MODS_ALLOWED
+import SUtil.getStorageDirectory() + 
 import sys.FileSystem;
 import sys.io.File;
 #end
